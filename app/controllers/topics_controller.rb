@@ -14,7 +14,12 @@ class TopicsController < ApplicationController
     experts = get_members_for_topic(strangers, params[:query])
 
     experts.each do |expert|
-      search_result = { topic: expert.content, path: [] }
+      search_result = {
+        member_id: expert.member_id,
+        topic: expert.content,
+        short_url: expert.short_url,
+        path: []
+      }
 
       # check to see member that is searching has mutual friends with the topic expert
       mutual = check_mutual(friends, expert.member_id)

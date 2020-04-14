@@ -1,4 +1,6 @@
 json.results @results do |result|
+  json.member_id result[:member_id]
+  json.short_url result[:short_url]
   json.content result[:topic]
 
   path_string = ''

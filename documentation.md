@@ -31,22 +31,6 @@
 			"website": "https://nokogiri.org/tutorials/installing_nokogiri.html" //string
   		}
     	```
-	
-	- 400 BAD REQUEST
-    	
-		You can expect to receive a list of fields and respective errors.
-
-		Sample response
-    	```
-    	{
-			"address": [
-				"This field is required."
-			],
-			"zipcode": [
-				"This field is required."
-			]
-    	}
-    	```
 
 ---
 
@@ -152,6 +136,8 @@
     	```
 		[
 			{
+				"member_id": 1, //integer
+				"short_url": "https://bit.ly/2Rv3XhV", //string
 				"content": "Building Models", //string
 				"path": "Ahmed --> Bob --> John" //string
 			} ...

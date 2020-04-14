@@ -5,8 +5,6 @@ An API for searching experts for topics based on provided requirements
 ## How to run
 #### Tested on Ruby v2.6.3 / Rails v6.0.2.2
 
-- As the API is not at all critical, I have included my api key in the `.env` file
-
 ### Using Docker
 - Pull docker container `addauda/expert-search:latest` from docker hub registry
 - Run container with the following command `docker run --rm -it -p 3000:3000/tcp addauda/expert-search:latest`

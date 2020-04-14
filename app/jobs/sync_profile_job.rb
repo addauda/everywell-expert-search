@@ -15,6 +15,7 @@ class SyncProfileJob < ApplicationJob
   private
 
   def shorten_url(member)
+    # Bitly API integration
     url = URI('https://api-ssl.bitly.com/v4/shorten')
     data = { long_url: member.website }
 
@@ -30,6 +31,8 @@ class SyncProfileJob < ApplicationJob
 
     if response.code == '200'
       response_json = JSON.parse(response.body)
+
+      # Update members shortened url
       member.short_url = response_json['link']
       member.save
     end
@@ -39,6 +42,7 @@ class SyncProfileJob < ApplicationJob
     # Fetch and parse HTML document
     doc = Nokogiri.HTML(open(member.website))
 
+    # Get all h1,h2,h3 tags and create topics
     doc.css('h1', 'h2', 'h3').each do |header|
       Topic.create(
         content: header.content, heading_tag: header.name, member_id: member.id
